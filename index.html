@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/fm.revealator.jquery.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates" rel="stylesheet">
+
+
+    <title>Владимир Гевак</title>
+    <script>
+    var TMR = 10, myDate = '08.04.1993 11:36:00';
+    onload = function ()
+    {
+    setInterval (function ()
+       {
+       var a =  myDate.split(' '),
+           b =  a[0].split('.'),
+           c =  a[1].split(':'),
+           d = new Date (),
+
+       T     =              [] , C     =               [];
+       T [0] =           b [2] , C [0] = d.getFullYear (),
+       T [1] =         --b [1] , C [1] = d.getMonth    (),
+       T [2] = parseInt (b [0]), C [2] = d.getDate     (),
+       T [3] = parseInt (c [0]), C [3] = d.getHours    (),
+       T [4] = parseInt (c [1]), C [4] = d.getMinutes  (),
+       T [5] = parseInt (c [2]), C [5] = d.getSeconds  ();
+       for (var D = [], j = -1; j < 6; j++, D [j] = C [j] - T [j]);
+
+       if (D [5] < 0) --D [4],                D [5] += 60;
+       if (D [4] < 0) --D [3],                D [4] += 60;
+       if (D [3] < 0) --D [2],                D [3] += 24;
+       if (D [2] < 0) --D [1], d.setDate (0), D [2] +=  d.getDate ();
+       if (D [1] < 0) --D [0],                D [1] += 12;
+
+       var w = [['год, '    , 'года, '   , 'лет, '    ],   // 0
+                ['месяц, '  , 'месяца, ' , 'месяцев, '],   // 1
+                ['день, '   , 'дня, '    , 'дней, '   ],   // 2
+                ['час, '    , 'часа, '   , 'часов, '  ],   // 3
+                ['минута, ' , 'минуты, ' , 'минут, '  ],   // 4
+                ['секунда.', 'секунды.', 'секунд.' ]];  // 5
+       for (j = 0; j < 6; j++)
+          {
+          var n = D [j],
+              k = n % 10,
+              l = (!k || n > 5 && n < 21 || k > 4) ? 2 : ((k == 1) ? 0 : 1);
+          document.getElementById ('mt').getElementsByTagName ('span')[j].innerHTML = n + ' ' + w [j] [l];
+          }
+       TMR = 1000;
+       }, TMR);
+    }
+    </script>
+  </head>
+  <body data-anm=".anm">
+    <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark top">
+      <a class="navbar-brand" href="#start"><i class="fab fa-staylinked fa-2x"></i></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" href="#aboutme">обо мне</a>
+          <a class="nav-item nav-link" href="#portfolio">проекты</a>
+          <a class="nav-item nav-link" href="#contacts">контакты</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 1 section -->
+
+    <div id="start">
+        <div id="first" class="anm" data-speed-x="-2" >
+        </div>
+        <div id="second" class="anm" data-speed-x="2" >
+        </div>
+        <div id="center" >
+          <img id="book" class="anm" data-speed-x="3" data-speed-y="3" data-speed-rotate="-10" data-speed-scale="5" src="/img/book.jpg" alt="book"/>
+        </div>
+        <div id="third" class="anm" data-speed-x="-2" >
+        </div>
+        <div id="mob" >
+          <img id="book_mob" src="/img/book.jpg" alt="book"/>
+        </div>
+        <div id="fourth" class="anm" data-speed-x="2" >
+        </div>
+    </div>
+
+    <!-- 2 section -->
+
+    <div id='aboutme' data-parallax="scroll" data-image-src="./img/aboutme.jpg">
+    </div>
+        <div class="container text-center">
+          <div class="row pb-5">
+          <div class="col-sm-12 mb-5 mt-5 revealator-fade revealator-duration15 revealator-delay3">
+            <h1 class="h1">Немного обо мне!</h1>
+          </div>
+          <div class="col-xl-6 revealator-slideright revealator-duration8 revealator-delay5">
+            <h3 class="h3">работа</h3>
+            <hr></hr>
+            <p>В данный момент я работаю инженером в РЖД, в свободное время увлекаюсь программированием.
+            Родился в 1993 году, сейчас мне если быть точным:<br/> <span id="mt">
+              <span></span><span></span><span></span><span></span><span></span><span></span></span>
+            </p>
+        </div>
+          <div class="col-xl-6 revealator-slideleft revealator-duration8 revealator-delay5">
+            <h3 class="h3">что я знаю</h3>
+            <hr></hr>
+            <span class="skills">HTML5 | CSS3 | Bootstrap | JavaScript | React | PHP</span>
+            <div class="icons">
+              <a href="http://htmlbook.ru/html5" target="_blank" rel="noopener noreferrer"><i class="icon fab fa-html5 fa-5x"></i></a>
+              <a href="https://developer.mozilla.org/ru/docs/Web/CSS/CSS3" target="_blank" rel="noopener noreferrer"><i class="icon fab fa-css3-alt fa-5x"></i></a>
+              <a href="https://learn.javascript.ru" target="_blank" rel="noopener noreferrer"><i class="icon fab fa-js-square fa-5x"></i></a>
+              <a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer"><i class="icon fab fa-react fa-5x"></i></a>
+              <a href="http://php.net/" target="_blank" rel="noopener noreferrer"><i class="icon fab fa-php fa-5x"></i></a>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div id='aboutme2' data-parallax="scroll" data-image-src="./img/aboutme2.jpg">
+    </div>
+
+  <!-- 3 section -->
+
+  <div id="portfolio" data-parallax="scroll" data-image-src="./img/portfolio.jpg">
+    <div class="container">
+    <div class="row mt-5">
+      <div class="col-sm-12 jumbotron revealator-slidedown revealator-duration8 revealator-delay5">
+        <h2 class="h2">Проекты!</h2>
+      </div>
+    </div>
+    <div class="card-group pb-4 pr-2 mt-0">
+         <a href="http://github.com" target="_blank" rel="noopener noreferrer" alt="project" class="card portfolio-link revealator-slideright revealator-duration8 revealator-delay5">
+            <img class="card-img-top" src="/img/portfol.jpg" alt="portfol">
+            <div class="card-body">
+              <h5 class="card-title">Мое портфолио</h5>
+              <p class="card-text">В данный момент это мой актуальный сайт, который находится по адресу lacront.ru.</p>
+            </div>
+        </a>
+        <a href="https://github.com/Lacronts/React-translate-train" target="_blank" rel="noopener noreferrer" alt="project" class="card portfolio-link revealator-slideup revealator-duration8 revealator-delay5">
+          <img class="card-img-top" src="/img/translate.jpg" alt="translate">
+          <div class="card-body">
+            <h5 class="card-title">Переводчик на React</h5>
+            <p class="card-text">React-переводчик(React 16, React-router, DB2)  </p>
+          </div>
+       </a>
+        <a href="https://github.com/Lacronts/react-portfolio" target="_blank" rel="noopener noreferrer" alt="project" class="card portfolio-link revealator-slideleft revealator-duration8 revealator-delay5">
+            <img class="card-img-top" src="/img/react-portfolio.jpg" alt="react-portfolio">
+            <div class="card-body">
+              <h5 class="card-title">React портфолио</h5>
+              <p class="card-text">Мой первый опыт с React. Простой сайт, написанный с использованием React 16, React-router, webpack, Bootstrap.</p>
+            </div>
+        </a>
+      </div>
+      <div class="card-group pb-4 pr-2 mt-0">
+        <a href="https://github.com/Lacronts/React-todo" target="_blank" rel="noopener noreferrer" alt="project" class="card portfolio-link revealator-slideright revealator-duration8 revealator-delay5">
+            <img class="card-img-top" src="/img/react-todo.png" alt="react-todo">
+            <div class="card-body">
+              <h5 class="card-title">React ToDo</h5>
+              <p class="card-text">Классический пример приложения ToDo на React с заголовком, сортировкой дела по названию и хранением данных в LocalStorage </p>
+            </div>
+        </a>
+        <a href="https://github.com/Lacronts/React-Redux-TODO" target="_blank" rel="noopener noreferrer" alt="project" class="card portfolio-link revealator-slideleft revealator-duration8 revealator-delay5">
+            <img class="card-img-top" src="/img/Redux-todo.png" alt="redux-todo">
+            <div class="card-body">
+              <h5 class="card-title">React-redux ToDo</h5>
+              <p class="card-text">Классический пример приложения ToDo на React-redux. </p>
+            </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 section -->
+
+  <div id="contacts" data-parallax="scroll" data-image-src="./img/contacts.jpg">
+   <div class="container-fluid">
+      <div class="container">
+        <div class="jumbotron mt-5 revealator-slidedown revealator-duration8 revealator-delay5">
+          <h2 class="h2 mb-5">Контакты</h2>
+            <div class="row justify-content-around">
+              <div class="col-12 col-md-4">
+                <p><i class="icon fab fa-skype fa-3x"></i></p>
+                <h3><strong>Skype</strong></h3>
+                <p>ikuz58@gmail.com</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <p><i class="icon fas fa-phone fa-3x"></i></p>
+                <h3><strong>Phone</strong></h3>
+                <p>+7(983)419-67-52</p>
+              </div>
+              <div class="col-12 col-md-4">
+                <p><i class="icon fas fa-envelope fa-3x"></i></p>
+                <h3><strong>E-Mail</strong></h3>
+                <p>ikuz58@gmail.com</p>
+              </div>
+            </div>
+        </div>
+      </div>
+
+
+      <footer class="footer">
+          <div class="row justify-content-around">
+            <div class="col-12 col-md-6">
+              <h2>Мое местоположение:</h2>
+              <div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2453.728885223708!2d113.51483986868523!3d52.04825056979401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5dca355406918cb9%3A0x6a4824ced57799c0!2z0YPQuy4g0JHRg9GC0LjQvdCwLCA3OCwg0KfQuNGC0LAsINCX0LDQsdCw0LnQutCw0LvRjNGB0LrQuNC5INC60YDQsNC5LCA2NzIwMTI!5e0!3m2!1sru!2sru!4v1535280534443" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <h2>Найти меня:</h2>
+              <ul class="list-inline">
+                <li class="findme"><a href="https://vk.com/vladimir_gevak" alt="vk" target="_blank" rel="noopener noreferrer"><i class="icon fab fa-3x fa-vk"></i></a></li>
+                <li class="findme"><a href="https://t.me/Lacront" alt="tme" target="_blank" rel="noopener noreferrer"><i class="icon fab fa-3x fa-telegram-plane"></i></a></li>
+                <li class="findme"><a href="https://github.com/Lacronts/" alt="git" target="_blank" rel="noopener noreferrer"><i class="icon fab fa-3x fa-github"></i></a></li>
+                <li class="findme"><a href="https://twitter.com/lacronts" alt="twit" target="_blank" rel="noopener noreferrer"><i class="icon fab fa-3x fa-twitter"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="bot col-12 col-md-12">
+              Владимир Гевак <script>document.write(new Date().getFullYear())</script>
+            </div>
+          </div>
+      </footer>
+    </div>
+  </div>
+
+
+
+  <!--end -->
+  </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="./js/fm.revealator.jquery.min.js"></script>
+    <script src="./js/anm.min.js"></script>
+    <script src="./js/parallax.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>
