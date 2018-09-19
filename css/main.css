@@ -301,7 +301,9 @@ hr{
 .list-inline{
   list-style: none;
 }
-
+.fab{
+  overflow: hidden;
+}
 .findme{
   color: #4700b3;
   transition: all 0.2s ease;
